@@ -1,23 +1,48 @@
 'use client';
 
 import React, { useState } from 'react';
+import clsx from 'clsx';
 import { CorrectIcon } from './icons/correct';
 import { IncorrectIcon } from './icons/incorrect';
+import { createScoreString } from '@/lib/utils/createScoreString';
 
 const PlayerPanel = () => {
-  const [playerScore, setPlayerScore] = useState<number>(0);
+  const [playerScore, setPlayerScore] = useState<number>(-100);
+  const [displayScore, setDisplayScore] = useState<string>(playerScore.toString());
 
-  const handleScoreChange = (wasCorrect: boolean) => {
-    if (wasCorrect) setPlayerScore(playerScore + 100);
-    else setPlayerScore(playerScore - 100);
+  const topLevelPanelStyles = clsx(
+    'w-full sm:w-2/3 md:w-1/2 lg:w-[320px]', // Widths
+    'min-h-[300px] lg:min-h-[320px] xl:min-h-[360px]', // Heights
+    'flex flex-col flex-none xl:flex-1 space-y-1', // Flex
+    'border-blue-lightest border-4 rounded-md', // Border
+    'm-2 p-1' // Spacing
+  );
+
+  const scorePanelStyles = clsx(
+    'bg-blue', // Color
+    'rounded', // Shape
+    'py-2', // Spacing
+    'flex justify-center items-center' // Flex
+  );
+
+  const scoreTextStyles = clsx(
+    'text-lg font-bold tracking-wide',
+    playerScore >= 0 ? 'text-white' : 'text-red'
+  );
+
+  const handleScoreChange = (wasCorrect: boolean): void => {
+    const defaultScore = 100; // Will change this when score changes become dynamic
+    const sign = wasCorrect ? 1 : -1;
+    const newScore = playerScore + defaultScore * sign;
+
+    setPlayerScore(newScore);
+    setDisplayScore(createScoreString(newScore));
   };
 
   return (
-    <div className="w-full sm:w-2/3 md:w-1/2 lg:w-[320px] min-h-[300px] lg:min-h-[320px] xl:min-h-[360px] m-2 flex flex-col flex-none xl:flex-1 space-y-1 border-blue-lightest border-4 rounded-md p-1">
-      <div className="flex justify-center items-center bg-blue rounded py-2">
-        <h3 className="text-lg text-white">
-          $<span>{playerScore}</span>
-        </h3>
+    <div className={topLevelPanelStyles}>
+      <div className={scorePanelStyles}>
+        <h3 className={scoreTextStyles}>{displayScore}</h3>
       </div>
       <div className="flex justify-center items-center bg-blue py-8 rounded flex-1">
         <h3 className="text-xl text-white">Name</h3>
