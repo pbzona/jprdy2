@@ -13,9 +13,9 @@ export function IncorrectIcon(props: SVGProps<SVGSVGElement>) {
       <path
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M12 12L7 7m5 5l5 5m-5-5l5-5m-5 5l-5 5"
       ></path>
     </svg>
