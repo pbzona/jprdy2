@@ -10,7 +10,7 @@ export class Game {
   }
 
   set activeValue(val: number) {
-    console.log('set to', val);
+    console.log("set to", val);
     this._activeValue = val;
   }
 }

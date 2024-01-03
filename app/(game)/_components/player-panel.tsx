@@ -1,33 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import clsx from 'clsx';
-import { CorrectIcon } from './icons/correct';
-import { IncorrectIcon } from './icons/incorrect';
-import { createScoreString } from '@/lib/utils/createScoreString';
-import { GameContext } from '../_context/game-context';
-import { Game } from '../_context/game';
+import React, { useEffect, useState } from "react";
+import clsx from "clsx";
+import { CorrectIcon } from "./icons/correct";
+import { IncorrectIcon } from "./icons/incorrect";
+import { createScoreString } from "@/lib/utils/createScoreString";
+import { GameContext } from "../_context/game-context";
+import { Game } from "../_context/game";
 
 const PlayerPanel = () => {
   const [playerScore, setPlayerScore] = useState<number>(0);
-  const [displayScore, setDisplayScore] = useState<string>(playerScore.toString());
+  const [displayScore, setDisplayScore] = useState<string>(
+    playerScore.toString(),
+  );
 
   const topLevelPanelStyles = clsx(
-    'w-full sm:w-2/3 md:w-1/2 lg:w-[320px]', // Widths
-    'min-h-[300px] lg:min-h-[320px] xl:min-h-[360px]', // Heights
-    'flex flex-col flex-none xl:flex-1 space-y-1', // Flex
-    'border-blue-lightest border-4 rounded-md', // Border
-    'm-2 p-1' // Spacing
+    "w-full sm:w-2/3 md:w-1/2 lg:w-[320px]", // Widths
+    "min-h-[300px] lg:min-h-[320px] xl:min-h-[360px]", // Heights
+    "flex flex-col flex-none xl:flex-1 space-y-1", // Flex
+    "border-blue-lightest border-4 rounded-md", // Border
+    "m-2 p-1", // Spacing
   );
 
   const scorePanelStyles = clsx(
-    'bg-blue', // Color
-    'rounded', // Shape
-    'py-2', // Spacing
-    'flex justify-center items-center' // Flex
+    "bg-blue", // Color
+    "rounded", // Shape
+    "py-2", // Spacing
+    "flex justify-center items-center", // Flex
   );
 
   const scoreTextStyles = clsx(
-    'text-lg font-bold tracking-wide',
-    playerScore >= 0 ? 'text-white' : 'text-red'
+    "text-lg font-bold tracking-wide",
+    playerScore >= 0 ? "text-white" : "text-red",
   );
 
   useEffect(() => {
@@ -54,12 +56,14 @@ const PlayerPanel = () => {
           </div>
           <div className="w-full flex rounded overflow-hidden">
             <button
+              type="button"
               className="flex-1 flex justify-center bg-gray-light hover:bg-green/20 text-green text-lg p-1"
               onClick={() => handleScoreChange(game.activeValue, true)}
             >
               <CorrectIcon />
             </button>
             <button
+              type="button"
               className="flex-1 flex justify-center bg-gray-light hover:bg-red/20 text-red text-lg p-1"
               onClick={() => handleScoreChange(game.activeValue, false)}
             >

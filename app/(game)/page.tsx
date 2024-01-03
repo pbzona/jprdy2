@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import PlayerPanel from './_components/player-panel';
-import QuestionValueButtons from './_components/question-value-buttons';
-import { GameProvider } from './_context/game-context';
-import { PlayersProvider } from './_context/players-context';
+import React from "react";
+import PlayerPanel from "./_components/player-panel";
+import QuestionValueButtons from "./_components/question-value-buttons";
+import { GameProvider } from "./_context/game-context";
+import { PlayersProvider } from "./_context/players-context";
 
 const GamePage = () => {
   return (

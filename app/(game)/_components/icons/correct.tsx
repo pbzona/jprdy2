@@ -1,4 +1,4 @@
-import { SVGProps } from 'react';
+import { SVGProps } from "react";
 
 // majesticons:check-line
 export function CorrectIcon(props: SVGProps<SVGSVGElement>) {
