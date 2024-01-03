@@ -1,4 +1,3 @@
-import { createContext } from 'react';
 import { Player } from './player';
 
 export class PlayerList extends Map<string, Player> {
@@ -18,5 +17,3 @@ export class PlayerList extends Map<string, Player> {
     return this.get(name);
   }
 }
-
-export const PlayersContext = createContext<PlayerList>(new PlayerList());

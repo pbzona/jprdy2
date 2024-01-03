@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { CorrectIcon } from './icons/correct';
 import { IncorrectIcon } from './icons/incorrect';
@@ -29,6 +29,10 @@ const PlayerPanel = () => {
     'text-lg font-bold tracking-wide',
     playerScore >= 0 ? 'text-white' : 'text-red'
   );
+
+  useEffect(() => {
+    setDisplayScore(createScoreString(playerScore));
+  }, [playerScore]);
 
   const handleScoreChange = (value: number, wasCorrect: boolean): void => {
     const sign = wasCorrect ? 1 : -1;
