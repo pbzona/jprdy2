@@ -2,32 +2,37 @@
 
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import { GameContext } from '../_context/game-context';
-import { Game } from '../_context/game';
+import { useGame } from '../_hooks/useGame';
 
 const VALUES = [200, 400, 600, 800, 1000];
 
 const QuestionValueButtons = () => {
-  // Active value might need its own context, visual updates aren't working probably because it's an object
-  // Or handle the display in state here - probaby smarter
+  const game = useGame();
+
+  // Note to future self: setValues will be used for round changes (eg double jprdy)
+  const [values, setValues] = useState<number[]>(VALUES);
+  const [activeValue, setActiveValue] = useState<number>(game.activeValue);
+
+  const handleValueButtonClick = (val: number) => {
+    game.activeValue = val;
+    setActiveValue(game.activeValue);
+  };
+
   return (
     <div className="flex justify-center items-center gap-3">
-      {VALUES.map(value => {
+      {values.map(value => {
+        const isActive = activeValue === value;
         return (
-          <GameContext.Consumer key={value}>
-            {({ activeValue }: Game) => (
-              <button
-                className={clsx(
-                  'text-yellow text-lg font-bold hover:bg-gradient-to-b from-red to-purple px-4 py-2 rounded-md hover:scale-105',
-                  activeValue === value ? 'bg-gradient-to-b' : 'bg-blue'
-                )}
-                key={value}
-                onClick={() => (activeValue = value)}
-              >
-                ${value}
-              </button>
+          <button
+            className={clsx(
+              'text-yellow text-lg font-bold hover:bg-gradient-to-b from-red to-purple px-4 py-2 rounded-md hover:scale-105',
+              isActive ? 'bg-gradient-to-b' : 'bg-blue'
             )}
-          </GameContext.Consumer>
+            key={value}
+            onClick={() => handleValueButtonClick(value)}
+          >
+            ${value}
+          </button>
         );
       })}
     </div>
