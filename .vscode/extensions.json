@@ -1,0 +1,4 @@
+{
+  "recommendations": ["biomejs.biome", "dmitrydorofeev.empty-indent"],
+  "unwantedRecommendations": []
+}
