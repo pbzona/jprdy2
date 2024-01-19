@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import { CorrectIcon } from './icons/correct';
-import { IncorrectIcon } from './icons/incorrect';
+import { CorrectIcon } from '../icons/correct';
+import { IncorrectIcon } from '../icons/incorrect';
 import { createScoreString } from '@/lib/utils/createScoreString';
-import { useGameStore } from '../_store/game-store';
-import { PlayerNameModal } from './player/player-name-modal';
+import { useGameStore } from '../../_store/game-store';
+import { PlayerNameModal } from './player-name-modal';
 
 type PlayerPanelProps = {
   playerIndex: number;
