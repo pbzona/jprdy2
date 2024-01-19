@@ -4,6 +4,7 @@ import { CorrectIcon } from './icons/correct';
 import { IncorrectIcon } from './icons/incorrect';
 import { createScoreString } from '@/lib/utils/createScoreString';
 import { useGameStore } from '../_store/game-store';
+import { PlayerNameModal } from './player/player-name-modal';
 
 type PlayerPanelProps = {
   playerIndex: number;
@@ -35,13 +36,26 @@ const PlayerPanel = ({ playerIndex }: PlayerPanelProps) => {
     playerScore >= 0 ? 'text-white' : 'text-red'
   );
 
+  const openPlayerNameModal = () => {
+    const modal = document?.getElementById(`player-name-${playerIndex}`);
+
+    if (modal instanceof HTMLDialogElement) modal.showModal();
+  };
+
   return (
     <div className={topLevelPanelStyles}>
       <div className={scorePanelStyles}>
         <h3 className={scoreTextStyles}>{createScoreString(playerScore)}</h3>
       </div>
       <div className="flex justify-center items-center bg-blue py-8 rounded flex-1">
-        <h3 className="text-xl text-white">{playerName}</h3>
+        <button
+          className="btn btn-ghost hover:bg-transparent"
+          type="button"
+          onClick={openPlayerNameModal}
+        >
+          <h3 className="text-xl text-white">{playerName}</h3>
+        </button>
+        <PlayerNameModal playerIndex={playerIndex} />
       </div>
       <div className="w-full flex rounded overflow-hidden">
         <button
