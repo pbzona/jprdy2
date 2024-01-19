@@ -53,8 +53,6 @@ const config: Config = {
           },
         },
       ],
-      darkTheme: 'light',
-      themeRoot: '*',
     },
   },
   plugins: [require('daisyui')],

@@ -3,24 +3,28 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply h-auto;
+  }
+
   body {
-    @apply text-black h-screen bg-white
+    @apply text-black min-h-screen h-full bg-white;
   }
 
   h1 {
-    @apply text-4xl
+    @apply text-4xl;
   }
 
   h2 {
-    @apply text-3xl
+    @apply text-3xl;
   }
 
   h3 {
-    @apply text-2xl
+    @apply text-2xl;
   }
 
   p {
-    @apply text-md
+    @apply text-md;
   }
 }
 
