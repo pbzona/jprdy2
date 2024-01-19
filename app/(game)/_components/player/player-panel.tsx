@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { CorrectIcon } from '../icons/correct';
 import { IncorrectIcon } from '../icons/incorrect';
 import { createScoreString } from '@/lib/utils/createScoreString';
-import { useGameStore } from '../../_store/game-store';
+import { useGameStore } from '@/app/(game)/_store/game-store';
 import { PlayerNameModal } from './player-name-modal';
 
 type PlayerPanelProps = {

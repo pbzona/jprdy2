@@ -1,5 +1,21 @@
 import type { Config } from 'tailwindcss';
 
+const colors = {
+  blue: 'hsla(232, 92%, 35%, 1)',
+  'blue-light': 'hsla(232, 48%, 50%, 1)',
+  'blue-lighter': 'hsla(231, 46%, 65%, 1)',
+  'blue-lightest': 'hsla(230, 42%, 80%, 1)',
+  white: 'hsla(210, 9%, 96%, 1)',
+  'gray-light': 'hsla(231, 8%, 85%, 1)',
+  gray: 'hsla(231, 8%, 49%, 1)',
+  'gray-dark': 'hsla(229, 12%, 27%, 1)',
+  black: 'hsla(240, 11%, 7%, 1)',
+  yellow: 'hsla(40, 93%, 64%, 1)',
+  red: 'hsla(339, 90%, 43%, 1)',
+  purple: 'hsla(263, 100%, 43%, 1)',
+  green: 'hsla(119, 91%, 31%, 1)',
+};
+
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,19 +24,7 @@ const config: Config = {
   ],
   theme: {
     colors: {
-      blue: 'hsla(232, 92%, 35%, 1)',
-      'blue-light': 'hsla(232, 48%, 50%, 1)',
-      'blue-lighter': 'hsla(231, 46%, 65%, 1)',
-      'blue-lightest': 'hsla(230, 42%, 80%, 1)',
-      white: 'hsla(210, 9%, 96%, 1)',
-      'gray-light': 'hsla(231, 8%, 85%, 1)',
-      gray: 'hsla(231, 8%, 49%, 1)',
-      'gray-dark': 'hsla(229, 12%, 27%, 1)',
-      black: 'hsla(240, 11%, 7%, 1)',
-      yellow: 'hsla(40, 93%, 64%, 1)',
-      red: 'hsla(339, 90%, 43%, 1)',
-      purple: 'hsla(263, 100%, 43%, 1)',
-      green: 'hsla(119, 91%, 31%, 1)',
+      ...colors,
     },
     fontSize: {
       xs: '0.8rem',
@@ -34,7 +38,23 @@ const config: Config = {
     },
     extend: {},
     daisyui: {
-      themes: false,
+      themes: [
+        {
+          jprdy: {
+            primary: colors.blue,
+            secondary: colors['blue-light'],
+            accent: colors.yellow,
+            neutral: colors.black,
+            'base-100': colors.white,
+            info: colors.purple,
+            success: colors.green,
+            warning: colors.yellow,
+            error: colors.red,
+          },
+        },
+      ],
+      darkTheme: 'light',
+      themeRoot: '*',
     },
   },
   plugins: [require('daisyui')],

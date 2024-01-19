@@ -30,9 +30,10 @@ export const PlayerNameModal = ({ playerIndex }: PlayerNameModalProps) => {
       id={`player-name-${playerIndex}`}
       className="modal"
       ref={modalRef}
+      data-theme="jprdy"
     >
-      <div className="modal-box">
-        <h3 className="font-bold text-md text-black">Edit player name</h3>
+      <div className="modal-box bg-white text-black">
+        <h3 className="font-bold text-md">Edit player name</h3>
         <div className="modal-action">
           <form
             method="dialog"
@@ -41,22 +42,21 @@ export const PlayerNameModal = ({ playerIndex }: PlayerNameModalProps) => {
           >
             <input
               type="text"
-              placeholder="Type here"
-              className="input input-bordered w-full max-w-full mb-4"
+              className="input input-bordered w-full max-w-full mb-4 bg-white focus:outline-2 focus:outline-blue-light"
               value={inputName}
               onChange={handleNameChange}
             />
 
             <div className="flex space-x-4 justify-end">
               <button
-                className="btn"
+                className="btn bg-gray-light hover:bg-gray/60 border-none tracking-wide text-gray-dark"
                 type="button"
                 onClick={handleCancel}
               >
                 Cancel
               </button>
               <button
-                className="btn bg-blue text-white hover:bg-blue-light"
+                className="btn bg-blue hover:bg-blue-light text-white/90 tracking-wide border-none"
                 type="submit"
               >
                 Save
