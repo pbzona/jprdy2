@@ -31,7 +31,7 @@ const PlayerPanel = ({ playerIndex }: PlayerPanelProps) => {
   );
 
   const scorePanelStyles = clsx(
-    'bg-blue', // Color
+    'bg-primary', // Color
     'rounded', // Shape
     'py-2', // Spacing
     'flex justify-center items-center' // Flex
@@ -53,7 +53,7 @@ const PlayerPanel = ({ playerIndex }: PlayerPanelProps) => {
       <div className={scorePanelStyles}>
         <h3 className={scoreTextStyles}>{createScoreString(playerScore)}</h3>
       </div>
-      <div className="flex justify-center items-center bg-blue py-8 rounded flex-1">
+      <div className="flex justify-center items-center bg-primary py-8 rounded flex-1">
         <button
           className="btn btn-ghost hover:bg-transparent"
           type="button"

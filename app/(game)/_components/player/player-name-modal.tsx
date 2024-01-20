@@ -30,7 +30,6 @@ export const PlayerNameModal = ({ playerIndex }: PlayerNameModalProps) => {
       id={`player-name-${playerIndex}`}
       className="modal"
       ref={modalRef}
-      data-theme="jprdy"
     >
       <div className="modal-box bg-white text-black">
         <h3 className="font-bold text-md">Player settings</h3>
@@ -46,7 +45,7 @@ export const PlayerNameModal = ({ playerIndex }: PlayerNameModalProps) => {
               </div>
               <input
                 type="text"
-                className="input input-bordered input-primary w-full max-w-full mb-4 bg-white"
+                className="input input-bordered input-primary w-full max-w-full mb-4 "
                 value={inputName}
                 onChange={handleNameChange}
               />
@@ -54,14 +53,14 @@ export const PlayerNameModal = ({ playerIndex }: PlayerNameModalProps) => {
 
             <div className="flex space-x-4 justify-end">
               <button
-                className="btn bg-gray-light hover:bg-gray/60 border-none tracking-wide text-gray-dark"
+                className="btn btn-ghost tracking-wide "
                 type="button"
                 onClick={handleCancel}
               >
                 Cancel
               </button>
               <button
-                className="btn bg-blue hover:bg-blue-light text-white/90 tracking-wide border-none"
+                className="btn btn-primary tracking-wide"
                 type="submit"
               >
                 Save

@@ -6,7 +6,7 @@ import { ArrowRight } from '../icons/arrow-right';
 
 export const GameActionList = () => {
   return (
-    <ul className="w-full mx-auto p-4 flex justify-center items-center bg-gray-light/50">
+    <ul className="w-full mx-auto p-2 space-x-2 flex justify-center items-center bg-gray-light/50">
       <li>
         <GameActionButton
           label="Add user"

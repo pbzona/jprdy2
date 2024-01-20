@@ -10,10 +10,10 @@ const GamePage = () => {
     <>
       <main className="w-full">
         <div className="w-full lg:w-[1000px] xl:w-[90%] mx-auto">
-          <div className="text-center mx-auto mt-4 lg:mt-8">
+          <div className="text-center mx-auto mt-2 md:mt-4">
             <QuestionValueButtons />
           </div>
-          <div className="flex flex-col lg:flex-row justify-center items-center mt-4 lg:mt-8 p-2 sm:p-0 mb-8">
+          <div className="flex flex-col lg:flex-row justify-center items-center mt-2 lg:mt-4 p-2 sm:p-0">
             <PlayerPanel playerIndex={0} />
             <PlayerPanel playerIndex={1} />
             <PlayerPanel playerIndex={2} />

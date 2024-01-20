@@ -26,8 +26,8 @@ const QuestionValueButtons = () => {
           return (
             <button
               className={clsx(
-                'text-yellow text-md sm:text-lg font-bold hover:bg-gradient-to-b from-red to-purple px-4 py-2 rounded-md scale-100 hover:scale-105',
-                isActive ? 'bg-gradient-to-b scale-105' : 'bg-blue'
+                'text-yellow text-md sm:text-lg font-bold hover:bg-gradient-to-b from-red to-purple px-4 py-1 rounded-md scale-100 hover:scale-105 border-none transition-all',
+                isActive ? 'bg-gradient-to-b scale-105' : 'bg-primary'
               )}
               key={value}
               onClick={() => handleValueButtonClick(value)}
