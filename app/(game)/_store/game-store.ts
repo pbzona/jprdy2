@@ -5,23 +5,27 @@ import { DEFAULT_PLAYER_NAME, DEFAULT_SCORE_VALUES } from './constants';
 type Player = {
   name: string;
   score: number;
+  show: boolean;
 };
 
 type GameState = {
   activeValue: number;
   scoreValues: number[];
-  players: Record<string, Player>;
+  players: Player[];
+  round: number; // 1 | 2 (Double Jeopardy) | 3 (Final Jeopardy)
 };
 
 type GameAction = {
   // Global actions
   setActiveValue: (value: number) => void;
+  goToNextRound: () => void;
+  goToLastRound: () => void;
 
   // Player actions
-  setPlayerName: (id: string, name: string) => void;
-  setPlayerScore: (id: string, score: number) => void;
-  updatePlayerScoreOnCorrect: (id: string) => void;
-  updatePlayerScoreOnIncorrect: (id: string) => void;
+  setPlayerName: (id: number, name: string) => void;
+  setPlayerScore: (id: number, score: number) => void;
+  updatePlayerScoreOnCorrect: (id: number) => void;
+  updatePlayerScoreOnIncorrect: (id: number) => void;
 };
 
 type GameStore = GameState & GameAction;
@@ -29,37 +33,43 @@ type GameStore = GameState & GameAction;
 const useGameStoreBase = create<GameStore>()(set => ({
   activeValue: 0,
   scoreValues: DEFAULT_SCORE_VALUES,
-  players: {
-    0: {
+  players: [
+    {
       name: DEFAULT_PLAYER_NAME,
       score: 0,
+      show: true,
     },
-    1: {
+    {
       name: DEFAULT_PLAYER_NAME,
       score: 0,
+      show: true,
     },
-    2: {
+    {
       name: DEFAULT_PLAYER_NAME,
       score: 0,
+      show: true,
     },
-  },
+  ],
+  round: 1,
   setActiveValue: (value: number) => set({ activeValue: value }),
-  setPlayerName: (id: string, name: string) =>
+  goToNextRound: () => set(state => ({ round: state.round < 3 ? state.round + 1 : state.round })),
+  goToLastRound: () => set(state => ({ round: state.round > 1 ? state.round - 1 : state.round })),
+  setPlayerName: (id: number, name: string) =>
     set(state => ({
       players: { ...state.players, [id]: { ...state.players[id], name } },
     })),
-  setPlayerScore: (id: string, score: number) =>
+  setPlayerScore: (id: number, score: number) =>
     set(state => ({
       players: { ...state.players, [id]: { ...state.players[id], score } },
     })),
-  updatePlayerScoreOnCorrect: (id: string) =>
+  updatePlayerScoreOnCorrect: (id: number) =>
     set(state => ({
       players: {
         ...state.players,
         [id]: { ...state.players[id], score: state.players[id].score + state.activeValue },
       },
     })),
-  updatePlayerScoreOnIncorrect: (id: string) =>
+  updatePlayerScoreOnIncorrect: (id: number) =>
     set(state => ({
       players: {
         ...state.players,

@@ -61,14 +61,14 @@ const PlayerPanel = ({ playerIndex }: PlayerPanelProps) => {
         <button
           type="button"
           className="flex-1 flex justify-center bg-gray-light hover:bg-green/20 text-green text-lg p-1"
-          onClick={() => updatePlayerScoreOnCorrect(playerIndex.toString())}
+          onClick={() => updatePlayerScoreOnCorrect(playerIndex)}
         >
           <CorrectIcon />
         </button>
         <button
           type="button"
           className="flex-1 flex justify-center bg-gray-light hover:bg-red/20 text-red text-lg p-1"
-          onClick={() => updatePlayerScoreOnIncorrect(playerIndex.toString())}
+          onClick={() => updatePlayerScoreOnIncorrect(playerIndex)}
         >
           <IncorrectIcon />
         </button>

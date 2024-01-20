@@ -22,7 +22,7 @@ export const PlayerNameModal = ({ playerIndex }: PlayerNameModalProps) => {
   };
 
   const handleSubmit = () => {
-    setPlayerName(playerIndex.toString(), inputName);
+    setPlayerName(playerIndex, inputName);
   };
 
   return (
@@ -33,19 +33,24 @@ export const PlayerNameModal = ({ playerIndex }: PlayerNameModalProps) => {
       data-theme="jprdy"
     >
       <div className="modal-box bg-white text-black">
-        <h3 className="font-bold text-md">Edit player name</h3>
-        <div className="modal-action">
+        <h3 className="font-bold text-md">Player settings</h3>
+        <div className="modal-action mt-1">
           <form
             method="dialog"
             className="flex flex-col justify-center w-full"
             onSubmit={handleSubmit}
           >
-            <input
-              type="text"
-              className="input input-bordered w-full max-w-full mb-4 bg-white focus:outline-2 focus:outline-blue-light"
-              value={inputName}
-              onChange={handleNameChange}
-            />
+            <label className="form-control w-full max-w-full">
+              <div className="label">
+                <span className="label-text">Name</span>
+              </div>
+              <input
+                type="text"
+                className="input input-bordered input-primary w-full max-w-full mb-4 bg-white"
+                value={inputName}
+                onChange={handleNameChange}
+              />
+            </label>
 
             <div className="flex space-x-4 justify-end">
               <button
