@@ -11,10 +11,16 @@ type PlayerPanelProps = {
 };
 
 const PlayerPanel = ({ playerIndex }: PlayerPanelProps) => {
+  const shouldDisplay = useGameStore.use.players()[playerIndex].show;
+
   const playerName = useGameStore(state => state.players[playerIndex].name);
   const playerScore = useGameStore(state => state.players[playerIndex].score);
   const updatePlayerScoreOnCorrect = useGameStore(state => state.updatePlayerScoreOnCorrect);
   const updatePlayerScoreOnIncorrect = useGameStore(state => state.updatePlayerScoreOnIncorrect);
+
+  if (!shouldDisplay) {
+    return null;
+  }
 
   const topLevelPanelStyles = clsx(
     'w-full sm:w-2/3 md:w-1/2 lg:w-[320px]', // Widths

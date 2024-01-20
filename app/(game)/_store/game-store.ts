@@ -42,12 +42,12 @@ const useGameStoreBase = create<GameStore>()(set => ({
     {
       name: DEFAULT_PLAYER_NAME,
       score: 0,
-      show: true,
+      show: false,
     },
     {
       name: DEFAULT_PLAYER_NAME,
       score: 0,
-      show: true,
+      show: false,
     },
   ],
   round: 1,
