@@ -1,4 +1,4 @@
-import { SVGProps } from "react";
+import { SVGProps } from 'react';
 
 // majesticons:close-line
 export function IncorrectIcon(props: SVGProps<SVGSVGElement>) {
@@ -10,6 +10,7 @@ export function IncorrectIcon(props: SVGProps<SVGSVGElement>) {
       viewBox="0 0 24 24"
       {...props}
     >
+      <title>Incorrect</title>
       <path
         fill="none"
         stroke="currentColor"
@@ -17,7 +18,7 @@ export function IncorrectIcon(props: SVGProps<SVGSVGElement>) {
         strokeLinejoin="round"
         strokeWidth="2"
         d="M12 12L7 7m5 5l5 5m-5-5l5-5m-5 5l-5 5"
-      ></path>
+      />
     </svg>
   );
 }

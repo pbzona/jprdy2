@@ -18,9 +18,9 @@ const colors = {
 
 const config: Config = {
   content: [
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     colors: {
@@ -37,23 +37,24 @@ const config: Config = {
       '4xl': '3.815rem',
     },
     extend: {},
-    daisyui: {
-      themes: [
-        {
-          jprdy: {
-            primary: colors.blue,
-            secondary: colors['blue-light'],
-            accent: colors.yellow,
-            neutral: colors.black,
-            'base-100': colors.white,
-            info: colors.purple,
-            success: colors.green,
-            warning: colors.yellow,
-            error: colors.red,
-          },
+  },
+  daisyui: {
+    themes: [
+      {
+        jprdy: {
+          primary: colors.blue,
+          secondary: colors['blue-light'],
+          accent: colors.yellow,
+          neutral: colors.black,
+          'base-100': colors.white,
+          info: colors.purple,
+          success: colors.green,
+          warning: colors.yellow,
+          error: colors.red,
         },
-      ],
-    },
+      },
+    ],
+    darkTheme: 'jprdy',
   },
   plugins: [require('daisyui')],
 };
