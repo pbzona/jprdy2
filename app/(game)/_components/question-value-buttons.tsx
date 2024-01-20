@@ -14,6 +14,9 @@ const QuestionValueButtons = () => {
     setActiveValue(val);
   };
 
+  // Don't display question value buttons for Final Jeopardy
+  if (round >= 3) return null;
+
   return (
     <div className="flex justify-center items-center gap-3 max-w-full">
       {scoreValues
