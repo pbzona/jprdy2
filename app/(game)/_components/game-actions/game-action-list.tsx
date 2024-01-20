@@ -11,6 +11,7 @@ export const GameActionList = () => {
         <GameActionButton
           label="Add user"
           show={true}
+          onClick={() => {}}
         >
           <UserAdd
             className="h-6 w-6"
@@ -22,6 +23,7 @@ export const GameActionList = () => {
         <GameActionButton
           label="Prev round"
           show={true}
+          onClick={() => {}}
         >
           <ArrowLeft
             className="h-6 w-6"
@@ -33,6 +35,7 @@ export const GameActionList = () => {
         <GameActionButton
           label="Next round"
           show={true}
+          onClick={() => {}}
         >
           <ArrowRight
             className="h-6 w-6"
