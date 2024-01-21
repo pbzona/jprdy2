@@ -12,9 +12,9 @@ export function ArrowLeft(props: SVGProps<SVGSVGElement>) {
       <path
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="m5 12l6-6m-6 6l6 6m-6-6h14"
       />
     </svg>
