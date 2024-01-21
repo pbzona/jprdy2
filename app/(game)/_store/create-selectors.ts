@@ -23,7 +23,7 @@ export const createSelectors_vanilla = <S extends StoreApi<object>>(_store: S) =
   const store = _store as WithSelectors<typeof _store>;
   store.use = {};
   for (const k of Object.keys(store.getState())) {
-    // biome-ignore lint/suspicious/noExplicitAny:
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     (store.use as any)[k] = () => useStore(_store, s => s[k as keyof typeof s]); // eslint-disable-line react-hooks/rules-of-hooks
   }
 

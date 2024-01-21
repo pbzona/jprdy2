@@ -3,21 +3,13 @@ import { GameActionButton } from './game-action-button';
 import { UserAdd } from '../icons/user-add';
 import { ArrowLeft } from '../icons/arrow-left';
 import { ArrowRight } from '../icons/arrow-right';
+import AddPlayerButton from './actions/add-player-button';
 
 export const GameActionList = () => {
   return (
     <ul className="w-full mx-auto p-2 space-x-2 flex justify-center items-center bg-gray-light/50">
       <li>
-        <GameActionButton
-          label="Add user"
-          show={true}
-          onClick={() => {}}
-        >
-          <UserAdd
-            className="h-6 w-6"
-            aria-hidden="true"
-          />
-        </GameActionButton>
+        <AddPlayerButton />
       </li>
       <li>
         <GameActionButton
