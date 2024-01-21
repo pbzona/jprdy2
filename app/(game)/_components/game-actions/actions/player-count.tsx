@@ -20,11 +20,12 @@ export const PlayerCount = () => {
     <div className="flex flex-row justify-center text-primary">
       <button
         type="button"
-        className="btn btn-sm btn-ghost disabled:text-muted disabled:bg-transparent p-1 text-sm translate-x-2 text-gray"
+        name="Remove player"
+        className="btn btn-sm btn-ghost disabled:text-muted disabled:bg-transparent p-1 text-xs translate-x-2 text-gray -scale-x-100 focus:-scale-x-100 active:-scale-x-100 active:focus:-scale-x-100 hover:active:-scale-x-100"
         onClick={handleRemovePlayer}
         disabled={activePlayerCount <= 1}
       >
-        &lt;
+        &#x27A4;
       </button>
       <div className="text-center">
         <div className="text-md font-bold">{activePlayerCount}</div>
@@ -34,11 +35,12 @@ export const PlayerCount = () => {
       </div>
       <button
         type="button"
-        className="btn btn-sm btn-ghost disabled:text-muted disabled:bg-transparent p-1 text-sm -translate-x-2 text-gray"
+        name="Add player"
+        className="btn btn-sm btn-ghost disabled:text-muted disabled:bg-transparent p-1 text-xs -translate-x-2 text-gray scale-x-100 focus:scale-x-100 active:scale-x-100 active:focus:scale-x-100 hover:active:scale-x-100"
         onClick={handleAddPlayer}
         disabled={activePlayerCount >= 3}
       >
-        &gt;
+        &#x27A4;
       </button>
     </div>
   );
