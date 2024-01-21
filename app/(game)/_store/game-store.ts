@@ -29,6 +29,7 @@ type GameAction = {
   updatePlayerScoreOnCorrect: (id: number) => void;
   updatePlayerScoreOnIncorrect: (id: number) => void;
   addPlayer: () => void;
+  removePlayer: () => void;
 };
 
 type GameStore = GameState & GameAction;
@@ -90,8 +91,18 @@ const useGameStoreBase = create<GameStore>()(set => ({
         ...state.players,
         [state.activePlayerCount]: { ...state.players[state.activePlayerCount], show: true },
       },
-      activePlayerCount:
-        state.activePlayerCount < 3 ? state.activePlayerCount + 1 : state.activePlayerCount,
+      activePlayerCount: state.activePlayerCount + 1,
+    })),
+  removePlayer: () =>
+    set(state => ({
+      players: {
+        ...state.players,
+        [state.activePlayerCount - 1]: {
+          ...state.players[state.activePlayerCount - 1],
+          show: false,
+        },
+      },
+      activePlayerCount: state.activePlayerCount - 1,
     })),
 }));
 
