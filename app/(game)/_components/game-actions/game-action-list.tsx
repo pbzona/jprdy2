@@ -7,10 +7,15 @@ import { useEventStore } from '@game/_store/event-store';
 
 import { GameActionButton } from './game-action-button';
 import { PlayerCount } from './actions/player-count';
+import { useGameStore } from '../../_store/game-store';
 
 export const GameActionList = () => {
   const gameHasStarted = useEventStore.use.gameHasStarted();
   const startGame = useEventStore.use.startGame();
+
+  const round = useGameStore.use.round();
+  const goToNextRound = useGameStore.use.goToNextRound();
+  const goToLastRound = useGameStore.use.goToLastRound();
 
   return (
     <ul className="w-full mx-auto p-2 space-x-2 flex justify-center items-center bg-gray-light/50">
@@ -26,12 +31,16 @@ export const GameActionList = () => {
           />
         </GameActionButton>
       </li>
-      <li>{!gameHasStarted && <PlayerCount />}</li>
+      {!gameHasStarted && (
+        <li>
+          <PlayerCount />
+        </li>
+      )}
       <li>
         <GameActionButton
           label="Prev round"
-          show={true}
-          onClick={() => {}}
+          show={round > 1}
+          onClick={() => goToLastRound()}
         >
           <ArrowLeft
             className="h-6 w-6"
@@ -42,8 +51,8 @@ export const GameActionList = () => {
       <li>
         <GameActionButton
           label="Next round"
-          show={true}
-          onClick={() => {}}
+          show={round < 3}
+          onClick={() => goToNextRound()}
         >
           <ArrowRight
             className="h-6 w-6"
