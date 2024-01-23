@@ -7,18 +7,21 @@ import { createScoreString } from '@/lib/utils/createScoreString';
 import { useGameStore } from '@/app/(game)/_store/game-store';
 
 import { PlayerNameModal } from './player-name-modal';
+import { useEventStore } from '../../_store/event-store';
 
 type PlayerPanelProps = {
   playerIndex: number;
 };
 
 const PlayerPanel = ({ playerIndex }: PlayerPanelProps) => {
-  const shouldDisplay = useGameStore.use.players()[playerIndex].show;
+  const gameHasStarted = useEventStore.use.gameHasStarted();
 
-  const playerName = useGameStore(state => state.players[playerIndex].name);
-  const playerScore = useGameStore(state => state.players[playerIndex].score);
-  const updatePlayerScoreOnCorrect = useGameStore(state => state.updatePlayerScoreOnCorrect);
-  const updatePlayerScoreOnIncorrect = useGameStore(state => state.updatePlayerScoreOnIncorrect);
+  const shouldDisplay = useGameStore.use.players()[playerIndex].show;
+  const playerName = useGameStore.use.players()[playerIndex].name;
+  const playerScore = useGameStore.use.players()[playerIndex].score;
+
+  const updatePlayerScoreOnCorrect = useGameStore.use.updatePlayerScoreOnCorrect();
+  const updatePlayerScoreOnIncorrect = useGameStore.use.updatePlayerScoreOnIncorrect();
 
   if (!shouldDisplay) {
     return null;
@@ -57,9 +60,10 @@ const PlayerPanel = ({ playerIndex }: PlayerPanelProps) => {
       </div>
       <div className="flex justify-center items-center bg-primary py-8 rounded flex-1">
         <button
-          className="btn btn-primary btn-lg"
+          className="btn btn-primary btn-lg disabled:bg-transparent"
           type="button"
           onClick={openPlayerNameModal}
+          disabled={gameHasStarted}
         >
           <h3 className="text-xl text-white">{playerName}</h3>
         </button>
