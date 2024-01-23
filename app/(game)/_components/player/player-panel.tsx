@@ -55,7 +55,7 @@ const PlayerPanel = ({ playerIndex }: PlayerPanelProps) => {
       </div>
       <div className="flex justify-center items-center bg-primary py-8 rounded flex-1">
         <button
-          className="btn btn-ghost hover:bg-transparent"
+          className="btn btn-ghost hover:bg-transparent outline-blue-light"
           type="button"
           onClick={openPlayerNameModal}
         >
