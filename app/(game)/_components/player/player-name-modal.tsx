@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { useGameStore } from '@game/_store/game-store';
 
+const MAX_LENGTH = 12;
+
 type PlayerNameModalProps = {
   playerIndex: number;
 };
@@ -45,10 +47,17 @@ export const PlayerNameModal = ({ playerIndex }: PlayerNameModalProps) => {
               </div>
               <input
                 type="text"
-                className="input input-bordered input-primary w-full max-w-full mb-4 "
+                className="input input-bordered input-primary w-full max-w-full"
                 value={inputName}
                 onChange={handleNameChange}
+                maxLength={MAX_LENGTH}
               />
+              <div className="label">
+                <span className="label-text-alt">{}</span>
+                <span className="label-text-alt">
+                  {inputName.length}/{MAX_LENGTH}
+                </span>
+              </div>
             </label>
 
             <div className="flex space-x-4 justify-end">
