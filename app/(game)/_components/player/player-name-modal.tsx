@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { useGameStore } from '@/app/(game)/_store/game-store';
+import { useGameStore } from '@game/_store/game-store';
 
 type PlayerNameModalProps = {
   playerIndex: number;

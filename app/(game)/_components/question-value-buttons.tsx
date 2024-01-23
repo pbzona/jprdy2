@@ -2,7 +2,7 @@
 
 import React from 'react';
 import clsx from 'clsx';
-import { useGameStore } from '../_store/game-store';
+import { useGameStore } from '@game/_store/game-store';
 
 const QuestionValueButtons = () => {
   const activeValue = useGameStore.use.activeValue();

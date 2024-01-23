@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import PlayerPanel from './_components/player/player-panel';
-import QuestionValueButtons from './_components/question-value-buttons';
-import { GameActionList } from './_components/game-actions/game-action-list';
+import PlayerPanel from '@game/_components/player/player-panel';
+import QuestionValueButtons from '@game/_components/question-value-buttons';
+import { GameActionList } from '@game/_components/game-actions/game-action-list';
 
 const GamePage = () => {
   return (

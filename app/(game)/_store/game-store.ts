@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { createSelectors_hooks, createSelectors_vanilla } from './create-selectors';
+import { createSelectors_hooks } from './create-selectors';
 import { DEFAULT_PLAYER_NAME, DEFAULT_SCORE_VALUES } from './constants';
 
 export type Player = {

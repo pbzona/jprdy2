@@ -1,8 +1,8 @@
 import React from 'react';
 import { GameActionButton } from '../game-action-button';
 
-import { UserAdd } from '../../icons/user-add';
-import { useGameStore } from '@/app/(game)/_store/game-store';
+import { UserAdd } from '@game/_components/icons/user-add';
+import { useGameStore } from '@game/_store/game-store';
 
 const AddPlayerButton = () => {
   const addPlayer = useGameStore.use.addPlayer();

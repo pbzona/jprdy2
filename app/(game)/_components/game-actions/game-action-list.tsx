@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { ArrowLeft } from '@/app/(game)/_components/icons/arrow-left';
-import { ArrowRight } from '@/app/(game)/_components/icons/arrow-right';
-import { useEventStore } from '@/app/(game)/_store/event-store';
+import { ArrowLeft } from '@game/_components/icons/arrow-left';
+import { ArrowRight } from '@game/_components/icons/arrow-right';
+import { PlayIcon } from '@game/_components/icons/play';
+import { useEventStore } from '@game/_store/event-store';
 
 import { GameActionButton } from './game-action-button';
 import { PlayerCount } from './actions/player-count';
-import { PlayIcon } from '../icons/play';
 
 export const GameActionList = () => {
   const gameHasStarted = useEventStore.use.gameHasStarted();

@@ -1,4 +1,4 @@
-import { useGameStore } from '@/app/(game)/_store/game-store';
+import { useGameStore } from '@game/_store/game-store';
 import React from 'react';
 
 export const PlayerCount = () => {
